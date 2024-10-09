@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GymBookingManager.Core.Interfaces;
 using GymBookingManager.Core.Models;
+using GymBookingManager.Core.Services;
 using GymBookingManager.Maui.Client.Services;
 
 namespace GymBookingManager.Maui.Client.ViewModels;
@@ -72,7 +73,6 @@ public partial class AuthViewModel : ObservableObject
 
     public void LogOut()
     {
-        _appState.CurrentUser = null;
         MainThread.BeginInvokeOnMainThread(() => IsAuthenticated = false);
     }
 
