@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{227DF57A-5358-4A26-90F2-0BD9C89C248A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{FFAD6C4E-7A3E-492D-852F-DDD91DAAF2E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{38292990-4C88-4ADC-8B4B-4E97D9AAAA8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{AE931F86-EE76-4E6D-A395-B024DB93EA28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymBookingManager.Maui.Client", "src\Applications\Clients\GymBookingManager.Maui.Client\GymBookingManager.Maui.Client.csproj", "{853B575B-47E8-4B77-8066-A70F520B3AA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymBookingManager.Core", "src\Libraries\GymBookingManager.Core\GymBookingManager.Core.csproj", "{DABE2FEF-EDC9-4093-B61D-E26B0C8AD045}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{227DF57A-5358-4A26-90F2-0BD9C89C248A} = {38292990-4C88-4ADC-8B4B-4E97D9AAAA8A}
+		{FFAD6C4E-7A3E-492D-852F-DDD91DAAF2E2} = {38292990-4C88-4ADC-8B4B-4E97D9AAAA8A}
+		{AE931F86-EE76-4E6D-A395-B024DB93EA28} = {227DF57A-5358-4A26-90F2-0BD9C89C248A}
+		{853B575B-47E8-4B77-8066-A70F520B3AA5} = {AE931F86-EE76-4E6D-A395-B024DB93EA28}
+		{DABE2FEF-EDC9-4093-B61D-E26B0C8AD045} = {FFAD6C4E-7A3E-492D-852F-DDD91DAAF2E2}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{853B575B-47E8-4B77-8066-A70F520B3AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{853B575B-47E8-4B77-8066-A70F520B3AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{853B575B-47E8-4B77-8066-A70F520B3AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{853B575B-47E8-4B77-8066-A70F520B3AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DABE2FEF-EDC9-4093-B61D-E26B0C8AD045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABE2FEF-EDC9-4093-B61D-E26B0C8AD045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABE2FEF-EDC9-4093-B61D-E26B0C8AD045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABE2FEF-EDC9-4093-B61D-E26B0C8AD045}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

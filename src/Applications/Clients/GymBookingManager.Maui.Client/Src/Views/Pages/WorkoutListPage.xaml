@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:GymBookingManager.Maui.Client.Converters"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewModels="clr-namespace:GymBookingManager.Maui.Client.ViewModels"
+             x:Class="GymBookingManager.Maui.Client.Views.Pages.WorkoutListPage"
+             x:DataType="viewModels:WorkoutListViewModel"
+             Title="Workouts">
+
+    <ContentPage.Resources>
+        <converters:FriendlyDateTimeConverter x:Key="FriendlyDateTimeConverter" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Clicked="OnLogOutClicked" />
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout Spacing="10">
+        <SearchBar TextColor="White"
+                   Placeholder="Search workouts by Category or Time"
+                   Text="{Binding SearchText}" />
+
+        <CollectionView ItemsSource="{Binding Workouts}">
+
+            <CollectionView.EmptyView>
+                <ContentView>
+                    <Label Margin="0,10,0,0"
+                           HorizontalOptions="Center"
+                           FontSize="20"
+                           Text="No workouts found" />
+                </ContentView>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:WorkoutViewModel">
+                    <Grid ColumnDefinitions="*,80,80"
+                          RowDefinitions="*,*,*"
+                          ColumnSpacing="10"
+                          RowSpacing="2"
+                          Padding="10"
+                          BackgroundColor="Black">
+                        <Label Grid.Column="0"
+                               Grid.Row="0"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               TextColor="White"
+                               Text="{Binding Title}" />
+                        <Label Grid.Column="0"
+                               Grid.Row="1"
+                               FontAttributes="Bold"
+                               FontSize="16"
+                               TextColor="White"
+                               Text="{Binding SeatsStatus}" />
+                        <Label Grid.Column="0"
+                               Grid.Row="2"
+                               FontSize="16"
+                               TextColor="LightGray"
+                               Text="{Binding StartTime,
+                                 Converter={StaticResource FriendlyDateTimeConverter}}" />
+                        
+                        <Button Grid.Column="1"
+                                Grid.RowSpan="3"
+                                BackgroundColor="RoyalBlue"
+                                TextColor="White"
+                                Text="Details"
+                                Command="{Binding
+                                  Source={RelativeSource
+                                  AncestorType={x:Type viewModels:WorkoutListViewModel}},
+                                  Path=ShowWorkoutCommand}"
+                                CommandParameter="{Binding .}" />
+
+                        <Button Grid.Column="2"
+                                Grid.RowSpan="3"
+                                BackgroundColor="SeaGreen"
+                                TextColor="White"
+                                Text="Book"
+                                Command="{Binding
+                                  Source={RelativeSource
+                                  AncestorType={x:Type viewModels:WorkoutListViewModel}},
+                                  Path=BookWorkoutCommand}"
+                                CommandParameter="{Binding .}"
+                                IsEnabled="{Binding IsFullyBooked, 
+                                  Converter={StaticResource InvertedBoolConverter}}"
+                                IsVisible="{Binding IsBooked, 
+                                  Converter={StaticResource InvertedBoolConverter}}" />
+
+                        <Button Grid.Column="2"
+                                Grid.RowSpan="3"
+                                BackgroundColor="DarkRed"
+                                TextColor="White"
+                                Text="Cancel"
+                                Command="{Binding
+                                  Source={RelativeSource
+                                  AncestorType={x:Type viewModels:WorkoutListViewModel}},
+                                  Path=CancelWorkoutCommand}"
+                                CommandParameter="{Binding .}"
+                                IsVisible="{Binding IsBooked}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
