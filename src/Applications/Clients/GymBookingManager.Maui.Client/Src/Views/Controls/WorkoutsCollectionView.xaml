@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:GymBookingManager.Maui.Client.ViewModels"
+             xmlns:controls="clr-namespace:GymBookingManager.Maui.Client.Views.Controls"
+             x:DataType="viewModels:WorkoutListViewModel"
+             x:Class="GymBookingManager.Maui.Client.Views.Controls.WorkoutsCollectionView">
+
+    <CollectionView ItemsSource="{Binding Workouts}">
+
+        <CollectionView.EmptyView>
+            <ContentView>
+                <Label Margin="0,10,0,0"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       Text="No workouts found" />
+            </ContentView>
+        </CollectionView.EmptyView>
+
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <controls:WorkoutItemView />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentView>

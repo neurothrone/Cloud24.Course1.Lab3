@@ -75,8 +75,4 @@
       <ProjectReference Include="..\..\..\Libraries\GymBookingManager.Core\GymBookingManager.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Src\Views\Controls\" />
-    </ItemGroup>
-
 </Project>
