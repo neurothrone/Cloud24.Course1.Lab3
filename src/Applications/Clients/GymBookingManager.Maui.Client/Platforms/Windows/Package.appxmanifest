@@ -58,7 +58,7 @@
                 <!-- Register COM CLSID -->
                 <com:Extension Category="windows.comServer">
                     <com:ComServer>
-                        <com:ExeServer Executable="YOUR-PATH-TO-EXECUTABLE" DisplayName="$targetnametoken$"
+                        <com:ExeServer Executable="GymBookingManager.Maui.Client\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\GymBookingManager.Maui.Client.exe" DisplayName="$targetnametoken$"
                                        Arguments="----AppNotificationActivated:"> <!-- Example path to executable: CommunityToolkit.Maui.Sample\CommunityToolkit.Maui.Sample.exe -->
                             <com:Class Id="6e919706-2634-4d97-a93c-2213b2acc334"/>
                         </com:ExeServer>
