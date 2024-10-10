@@ -17,6 +17,9 @@
 
             <Entry Margin="0,20"
                    Placeholder="Username"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"
+                   ClearButtonVisibility="WhileEditing"
                    Text="{Binding Username}" />
 
             <Button BackgroundColor="SeaGreen"
